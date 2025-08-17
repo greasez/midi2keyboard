@@ -1,11 +1,11 @@
 # midi to keyboard
 
-MIDI 輸入訊號轉鍵盤訊號輸出，目的為在遊戲裡面使用自己的MIDI設備玩音樂！
+MIDI 輸入訊號轉鍵盤訊號輸出，目的是在遊戲裡面使用自己的MIDI設備玩音樂！
 永劫無間的蓬萊島提供樂器供玩家彈奏，彈奏方式是使用鍵盤按下對應的按鍵就會發出對應的音調出來。
 但是鍵盤真的不好按，因此誕生出這個小工具，讓會彈琴的人不用重新熟悉鍵盤鍵位。
 ![圖片](images/screenshot.png)
 
-## 如何使用
+## 如何安裝
 
 本專案使用python，因此需自行到python官網下載python，版本選擇3.10.6，下載並安裝。
 **安裝python時記得要勾選「Add Python to PATH」**
@@ -35,12 +35,46 @@ pip install -r requirements.txt
 
 ```
 
-執行程式，如果要再次執行的話，只需要執行這行。
-如果關掉`終端機`或`powershell`，則需要先執行`cd C:\midi2keyboard`後，再執行`python main.py`
+## 如何使用
 
-```python
+移動到專案資料夾
+
+```powershell
+cd C:\midi2keyboard
+```
+
+執行前，**檢查是否接上MIDI設備，如果沒有找到MIDI設備，會執行失敗**。
+
+```powershell
 python main.py
 ```
+
+執行後，選擇你的MIDI設備(輸入後方數字)，就可以在遊戲裡面彈奏樂器~
+
+```plaintext
+PS C:\midi2keyboard> python .\main.py
+[2025-08-17 23:20:45,775] : Starting MIDI to keyboard
+MIDI devices:
+ - CASIO USB-MIDI 0
+選擇設備 ( 輸入數字 ): 0
+[2025-08-17 23:21:25,348] : midi Device: CASIO USB-MIDI 0
+[2025-08-17 23:21:25,348] : Listening for MIDI input
+['CASIO USB-MIDI 0']
+[2025-08-17 23:22:24,597] : MIDI note on: 60
+[2025-08-17 23:22:24,669] : keyDown: ,
+[2025-08-17 23:22:24,762] : MIDI note off: 60
+[2025-08-17 23:22:24,762] : keyUp: ,
+[2025-08-17 23:22:24,909] : MIDI note on: 62
+[2025-08-17 23:22:24,910] : keyDown: .
+[2025-08-17 23:22:25,022] : MIDI note off: 62
+[2025-08-17 23:22:25,023] : keyUp: .
+[2025-08-17 23:22:25,110] : MIDI note on: 64
+[2025-08-17 23:22:25,111] : keyDown: /
+[2025-08-17 23:22:25,267] : MIDI note off: 64
+[2025-08-17 23:22:25,269] : keyUp: /
+```
+
+
 
 ## 鍵位設定
 

@@ -13,7 +13,6 @@ def get_midi_device() -> list:
 
 def listen_midi(number: int = 0):
     input_name = mido.get_input_names()[number] # 取得MIDI 輸入裝置
-    print(mido.get_input_names())
     return mido.open_input(input_name)
 
 def choose_midi_device() -> int:
