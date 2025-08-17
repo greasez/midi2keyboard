@@ -77,7 +77,7 @@ C#4 = 61
 {
     "enableLog": true, // 是否啟用logger，如果不啟用的話，就不會生成和顯示log紀錄(預設為啟用)
     "showLog": true, // 是否顯示log(預設為顯示)
-    "saveLog": true // 是否將log存成檔案(預設為要儲存)
+    "saveLog": true // 是否將log存成檔案(預設為儲存)
 }
 ```
 
