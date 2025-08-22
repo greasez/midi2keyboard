@@ -1,7 +1,9 @@
-import json
+from utils.config_loader import ConfigLoader
 
-with open('config/keymap.json', 'r') as file:
-    keymap = json.load(file)
+keymap = ConfigLoader("config/keymap.json")
 
 def note2key(note: int) -> str | None:
     return keymap.get(str(note), None)
+
+def reload_keymap() -> None:
+    keymap.reload()
