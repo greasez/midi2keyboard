@@ -7,26 +7,27 @@ from utils.logger import get_logger, shutdown_logger
 logger = get_logger()
 
 def main():
-    key = None
+    device = None
     logger.info("Starting MIDI to keyboard")
-    while key == None:
-        key = choose_midi_device()
+    while device == None:
+        device = choose_midi_device()
     logger.info("Listening for MIDI input")
     try:
-        with listen_midi(key) as midi_input:
+        with listen_midi(device) as midi_input:
             for message in midi_input:
                 if message.type == 'note_on':
                     note = message.note
                     logger.info(f"MIDI note on: {note}")
-                    key_to_press = note2key(note)
-                    if key_to_press:
-                        keyDown(key_to_press)
+                    key_press = note2key(note)
+                    if key_press:
+                        keyDown(key_press)
+                
                 if message.type == 'note_off':
                     note = message.note
                     logger.info(f"MIDI note off: {note}")
-                    key_to_release = note2key(note)
-                    if key_to_release:
-                        keyUp(key_to_release)
+                    key_release = note2key(note)
+                    if key_release:
+                        keyUp(key_release)
     except Exception as e:
         logger.error(f"Error: {e}")
     finally:
